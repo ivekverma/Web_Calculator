@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            margin: 5px auto;
+            width: 100%;
+            background-color: #f7caca;
+            padding: 10px;
+            box-shadow: 0 0 15px 0 rgba(0,0,0,0.9);
+        }
+        .row {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        button {
+            padding: 22px 10px;
+            font-size: 2vw;
+            width: 9vw;
+            margin-bottom: 2vh;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: rgb(221 210 210);
+        }
+        button:hover{
+            background-color: #ff8a00;
+            color: white;
+        }
+        .white {
+            background-color: white;
+        }
+        input {
+            width: 98%;
+            /* margin-left: 4px; */
+            font-size: 2vw;
+            padding: 30px;
+            margin: 20px 4px;
+            border-radius: 10px;
+            margin-left: 1vw;
+            background-color: black;
+            color: white;
+            padding-top: 60px;
+            padding-bottom: 15px;
+        }
+        .second {
+            display: none;
+        }
+        .equal {
+            background-color: #ff8a00;
+            color: white;
+        }
+        .equal:hover{
+            background-color: rgb(221 210 210);
+            color:#ff8a00;
+        }
+        .clear {
+            color: #ff8a00;
+        }
+        .clear:hover{
+            color: white;
+        }
+        
+        .first,.second{
+            display: none;
+        }
+        @media (max-width:600px){
+            .fir{
+               
+                display: none;
+            }
+            .first{
+                display: flex;
+            }
+            .second{
+                display:none;
+            }
+            button{
+                width: 19vw;
+                font-size: 5vw;
+            }
+            input{
+                font-size: 5vw;
+            }
+        }
+        @media (min-width:601px){
+            .first,.second{
+                display: none;
+            }
+            .fir{
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="input">
+                <input type="text" id="int" value="0">
+            </div>
+            <div class="row fir">
+                <button class="btn">&#8730</button>
+                <button class="btn">&#8731</button>
+                <button class="btn">(</button>
+                <button class="btn">)</button>
+                <button class="btn clear">AC</button>
+                <button class="btn clear">C</button>
+                <button class="btn">^</button>
+                <button class="btn">/</button>
+            </div>
+            <div class="row fir">
+                <button class="btn">1/x</button>
+                <button class="btn">e^x</button>
+                <button class="btn">^2</button>
+                <button class="btn">^3</button>
+                <button class="btn white">7</button>
+                <button class="btn white">8</button>
+                <button class="btn white">9</button>
+                <button class="btn">*</button>
+            </div>
+            <div class="row fir">
+                <button class="btn">log</button>
+                <button class="btn">sin</button>
+                <button class="btn">cos</button>
+                <button class="btn">tan</button>
+                <button class="btn white">4</button>
+                <button class="btn white">5</button>
+                <button class="btn white">6</button>
+                <button class="btn">-</button>
+            </div>
+            <div class="row fir">
+                <button class="btn">ln</button>
+                <button class="btn">cot</button>
+                <button class="btn">sec</button>
+                <button class="btn">cosec</button>
+                <button class="btn white">1</button>
+                <button class="btn white">2</button>
+                <button class="btn white">3</button>
+                <button class="btn">+</button>
+            </div>
+            <div class="row fir">
+                <button class="btn">x!</button>
+                <button class="btn">sinh</button>
+                <button class="btn">cosh</button>
+                <button class="btn">tanh</button>
+                <button class="btn white">0</button>
+                <button class="btn white">00</button>
+                <button class="btn white">.</button>
+                <button class="btn equal">=</button>
+            </div>
+            <div class="row first">
+                <button  onclick="hide()">2nd</button>
+                <button class="btn">&#8730</button>
+                <button class="btn clear">C</button>
+                <button class="btn clear">AC</button> 
+            </div>
+            <div class="row first">
+                <button class="btn">(</button>
+                <button class="btn">)</button>
+                <button class="btn">%</button>
+                <button class="btn">/</button> 
+            </div>
+            <div class="row first">
+                <button class="btn white">7</button>
+                <button class="btn white">8</button>
+                <button class="btn white">9</button>
+                <button class="btn">*</button> 
+            </div>
+            <div class="row first">
+                <button class="btn white">4</button>
+                <button class="btn white">5</button>
+                <button class="btn white">6</button>
+                <button class="btn">-</button> 
+            </div>
+            <div class="row first">
+                <button class="btn white">1</button>
+                <button class="btn white">2</button>
+                <button class="btn white">3</button>
+                <button class="btn">+</button> 
+            </div>
+            <div class="row first">
+                <button class="btn white">0</button>
+                <button class="btn white">00</button>
+                <button class="btn white">.</button>
+                <button class="btn equal">=</button> 
+            </div>          
+                    
+            <div class="row second">
+                <button  onclick="show()">1st</button>
+                <button class="btn">x!</button>
+                <button class="btn clear">C</button>
+                <button class="btn clear">AC</button> 
+            </div>          
+            <div class="row second">
+                <button class="btn">^</button>
+                <button class="btn">^2</button>
+                <button class="btn">e^x</button>
+                <button class="btn">&#8731</button> 
+            </div>          
+            <div class="row second">
+                <button class="btn white">sin</button>
+                <button class="btn white">cos</button>
+                <button class="btn white">tan</button>
+                <button class="btn">ln</button> 
+            </div>          
+            <div class="row second">
+                <button class="btn white">cot</button>
+                <button class="btn white">sec</button>
+                <button class="btn white">cosec</button>
+                <button class="btn">log</button> 
+            </div>          
+                    
+            <div class="row second">
+                <button class="btn white">sinh</button>
+                <button class="btn white" >cosh</button>
+                <button class="btn white">tanh</button>
+                <button class="btn equal">=</button> 
+            </div>    
+        </div>
+    </main>
+
+
+    <script src="cal.js">
+  
+    </script>
+</body>
+
+</html>
+
+
+
+
